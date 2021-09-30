@@ -1,0 +1,45 @@
+import React from 'react'
+import Button from '@/Components/Button'
+import Guest from '@/Layouts/Guest'
+import { Head, Link, useForm } from '@inertiajs/inertia-react'
+
+export default function VerifyEmail({ notification }) {
+  const { post, processing } = useForm()
+
+  const submit = (e) => {
+    e.preventDefault()
+
+    post('/email/verification-notification')
+  }
+
+  return (
+    <Guest>
+      <Head title="Email Verification" />
+
+      <div className="mb-4 text-sm text-gray-600">
+        Thanks for signing up! Before getting started, could you verify your email address by
+        clicking on the link we just emailed to you? If you didn't receive the email, we will gladly
+        send you another.
+      </div>
+
+      {notification.hasOwnProperty('success') && (
+        <div className="mb-4 font-medium text-sm text-green-600">{notification.success}</div>
+      )}
+
+      <form onSubmit={submit}>
+        <div className="mt-4 flex items-center justify-between">
+          <Button processing={processing}>Resend Verification Email</Button>
+
+          <Link
+            href={'/logout'}
+            method="post"
+            as="button"
+            className="underline text-sm text-gray-600 hover:text-gray-900"
+          >
+            Log Out
+          </Link>
+        </div>
+      </form>
+    </Guest>
+  )
+}

@@ -1,0 +1,49 @@
+<mjml>
+  <mj-head>
+    <mj-font name="Inter" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700" />
+    <mj-attributes>
+      <mj-text color="#718096" font-size="16px" line-height="1.4" />
+      <mj-all font-family="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'" />
+    </mj-attributes>
+    <mj-style>
+      .shadow {
+      box-shadow: 0 2px 0 rgb(0 0 150 / 3%), 2px 4px 0 rgb(0 0 150 / 2%);
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body background-color="#EDF2F7">
+    <mj-section padding="32px 0 32px 0">
+      <mj-column>
+        <mj-image width="100px" src="https://laravel.com/img/notification-logo.png"></mj-image>
+      </mj-column>
+    </mj-section>
+    <mj-section background-color="#FFFFFF" padding="25px 0 25px 0" border-radius="6px" css-class="shadow">
+      <mj-column>
+
+        <mj-text font-weight="700" color="#3d4852" font-size="18px" padding-bottom="16px">Hello!</mj-text>
+
+        <mj-text>Please click the button below to verify your email address.</mj-text>
+
+        <mj-button href="{{ `http://${env('HOST')}:${env('PORT')}${signedUrl}` }}" color="#FFFFFF" background-color="#2d3748" font-size="16px" line-height="1.4" border-radius="5px">
+          Verify Email Address
+        </mj-button>
+
+        <mj-text>If you did not create an account, no further action is required.</mj-text>
+
+        <mj-text>Regards, <br />Adonis</mj-text>
+
+        <mj-divider border-width="1px" border-color="#e8e5ef"></mj-divider>
+
+        <mj-text font-size="14px">
+          If you're having trouble clicking the "Verify Email Address" button, copy and paste the URL below into your web browser: <a href="{{ `http://${env('HOST')}:${env('PORT')}${signedUrl}` }}"> {{ `http://${env('HOST')}:${env('PORT')}${signedUrl}` }}</a>
+        </mj-text>
+
+      </mj-column>
+    </mj-section>
+    <mj-section>
+      <mj-column>
+        <mj-text align="center" color="#b0adc5" font-size="12px">&copy; 2021 Adonis. All rights reserved.</mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
